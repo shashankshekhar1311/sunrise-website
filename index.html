@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunrise Softwares Solutions | Enterprise Consulting & Consumer Products</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316', // Sunrise Orange
+              600: '#ea580c',
+              700: '#c2410c',
+              850: '#431407',
+              900: '#2b0e04',
+            },
+            accent: {
+              coral: '#f43f5e',
+              amber: '#f59e0b',
+              violet: '#8b5cf6',
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+            }
+          },
+          animation: {
+            'float': 'float 5s ease-in-out infinite',
+            'glow-pulse': 'glow 3s infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            glow: {
+              '0%': { opacity: 0.3 },
+              '100%': { opacity: 0.7 }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Scrollbars */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #070b14; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+
+    /* Visual Accents & Glass */
+    .glow-sunrise {
+      background: radial-gradient(circle at 50% -10%, rgba(249, 115, 22, 0.22) 0%, rgba(244, 63, 94, 0.1) 40%, rgba(3, 7, 18, 0) 75%);
+    }
+    .card-glass {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .card-glass:hover {
+      border-color: rgba(249, 115, 22, 0.35);
+      box-shadow: 0 12px 36px -10px rgba(249, 115, 22, 0.15);
+    }
+    .badge-status-beta { 
+      background: rgba(245, 158, 11, 0.15); 
+      color: #fbbf24; 
+      border: 1px solid rgba(251, 191, 36, 0.35); 
+    }
+    .badge-status-live { 
+      background: rgba(16, 185, 129, 0.15); 
+      color: #34d399; 
+      border: 1px solid rgba(52, 211, 153, 0.35); 
+    }
+    .badge-status-coming { 
+      background: rgba(139, 92, 246, 0.15); 
+      color: #c084fc; 
+      border: 1px solid rgba(192, 132, 252, 0.35); 
+    }
+    .video-aspect-box {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    }
+    .video-aspect-box > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="bg-[#030712] text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-[#030712]/85 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-500 to-accent-amber flex items-center justify-center shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform duration-300">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4"></path>
+            <path d="m4.93 4.93 2.83 2.83"></path>
+            <path d="M2 12h4"></path>
+            <path d="m19.07 4.93-2.83 2.83"></path>
+            <path d="M22 12h-4"></path>
+            <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"></path>
+            <path d="M4 22h16"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-xl tracking-tight text-white flex items-center gap-1">
+            Sunrise
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-accent-coral">Softwares Solutions</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#services" class="hover:text-brand-400 transition-colors">Services</a>
+        <a href="#products" class="hover:text-brand-400 transition-colors flex items-center gap-2">
+          <span>Products</span>
+          <span id="navBetaCount" class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">2 Beta</span>
+        </a>
+        <a href="#why-us" class="hover:text-brand-400 transition-colors">Architecture</a>
+        <a href="#contact" class="hover:text-brand-400 transition-colors">Contact</a>       
+
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#contact" onclick="switchFormTab('consulting')" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs uppercase tracking-wider font-bold rounded-xl group bg-gradient-to-br from-brand-500 via-accent-coral to-accent-amber group-hover:from-brand-600 group-hover:to-orange-500 text-white shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 transition-all duration-300">
+          <span class="relative px-4 py-2.5 transition-all ease-in duration-150 bg-slate-950/70 rounded-[10px] group-hover:bg-transparent flex items-center gap-2">
+            Schedule Call
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="md:hidden p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="hidden md:hidden bg-[#070d19] border-b border-slate-800 px-6 py-6 space-y-4">
+      <a href="#services" class="mobile-nav-link block text-sm font-medium text-slate-300 hover:text-brand-400">Consulting & Migration</a>
+      <a href="#products" class="mobile-nav-link block text-sm font-medium text-slate-300 hover:text-brand-400">Consumer Products</a>
+      <a href="#why-us" class="mobile-nav-link block text-sm font-medium text-slate-300 hover:text-brand-400">Why Sunrise</a>
+      <a href="#contact" class="mobile-nav-link block text-sm font-medium text-slate-300 hover:text-brand-400">Contact & Inquiries</a>
+      
+      <button onclick="toggleConfiguratorModal(); toggleMobileMenu();" class="w-full text-left py-2.5 px-3 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-brand-400 flex items-center justify-between">
+        <span>How to Edit / Add Products</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+
+      <div class="pt-3 border-t border-slate-800">
+        <a href="#contact" onclick="switchFormTab('consulting'); toggleMobileMenu();" class="w-full text-center py-3 rounded-xl bg-gradient-to-r from-brand-500 to-accent-coral text-white font-semibold text-xs uppercase tracking-wider block">
+          Book Technical Advisory
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <main class="flex-grow">
+    <section class="relative pt-36 pb-20 lg:pt-48 lg:pb-28 overflow-hidden glow-sunrise">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        
+        <!-- Live Pill -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-brand-500/30 text-xs font-medium text-brand-300 mb-8 animate-float shadow-inner">
+          <span class="flex h-2 w-2 rounded-full bg-brand-400 animate-ping"></span>
+          <span>Enterprise Consulting &bull; Zero-Downtime Migration &bull; Proprietary Beta Products</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-5xl mx-auto leading-[1.12]">
+          Software Built with Rigor: <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-amber-300 to-accent-coral">
+            From Enterprise Core to Next-Gen Consumer Apps.
+          </span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="mt-6 text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          We help forward-thinking organizations architect resilient cloud systems, integrate distributed services, and transition legacy platforms—while advancing our own proprietary beta consumer software products.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a href="#products" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-500 via-orange-600 to-accent-coral text-white font-semibold text-sm shadow-xl shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2">
+            <span>Explore Our Beta Products</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <a href="#services" class="px-7 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2">
+            <span>Consulting Services</span>
+            <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </a>
+        </div>
+
+        <!-- Trust Metric Strip -->
+        <div class="mt-16 pt-10 border-t border-slate-800/80 max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div>
+            <div class="font-display text-2xl lg:text-3xl font-bold text-white">99.99%</div>
+            <div class="text-[11px] text-slate-400 mt-1 uppercase tracking-wider font-mono">Zero-Downtime Migration</div>
+          </div>
+          <div>
+            <div class="font-display text-2xl lg:text-3xl font-bold text-brand-400">Multi-Cloud</div>
+            <div class="text-[11px] text-slate-400 mt-1 uppercase tracking-wider font-mono">AWS &bull; Azure &bull; GCP</div>
+          </div>
+          <div>
+            <div class="font-display text-2xl lg:text-3xl font-bold text-white" id="statProductsCount">2 Products</div>
+            <div class="text-[11px] text-slate-400 mt-1 uppercase tracking-wider font-mono">Active In Private Beta</div>
+          </div>
+          <div>
+            <div class="font-display text-2xl lg:text-3xl font-bold text-accent-coral">100% Secure</div>
+            <div class="text-[11px] text-slate-400 mt-1 uppercase tracking-wider font-mono">Modern Encryption</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== ENTERPRISE SERVICES ==================== -->
+    <section id="services" class="py-24 relative bg-slate-950/70 border-t border-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs uppercase tracking-widest font-mono text-brand-400 mb-2">Our Capabilities</h2>
+          <p class="font-display text-3xl sm:text-4xl font-bold text-white">Enterprise Software & Architecture</p>
+          <p class="mt-3 text-slate-400 text-sm sm:text-base">
+            End-to-end technical execution for organizations that require rock-solid stability and modern design standards.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Pillar 1: Software Consulting -->
+          <div class="card-glass rounded-2xl p-8 flex flex-col justify-between transition-all duration-300">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display mb-2">Strategic Consulting</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                Architecture reviews, technology stack selection, performance optimization, and fractional CTO leadership to ensure product-market fit.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-300 mb-6 font-mono">
+                <li class="flex items-center gap-2"><span class="text-brand-400">&bull;</span> Architectural Diagnostics & Code Reviews</li>
+                <li class="flex items-center gap-2"><span class="text-brand-400">&bull;</span> Scalability & Microservices Blueprints</li>
+                <li class="flex items-center gap-2"><span class="text-brand-400">&bull;</span> FinOps & Cloud Infrastructure Cost Reductions</li>
+              </ul>
+            </div>
+            <button onclick="prefillConsulting('Strategic Software Consulting')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800/90 hover:bg-brand-500/20 hover:text-brand-300 text-slate-200 text-xs font-semibold uppercase tracking-wider border border-slate-700 hover:border-brand-500/40 transition-colors flex items-center justify-center gap-2">
+              Inquire About Consulting &rarr;
+            </button>
+          </div>
+
+          <!-- Pillar 2: Systems & API Integration -->
+          <div class="card-glass rounded-2xl p-8 flex flex-col justify-between transition-all duration-300">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-accent-coral/10 border border-accent-coral/20 text-accent-coral flex items-center justify-center mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display mb-2">Systems Integration</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                Connect legacy databases, modern third-party APIs, CRM platforms, and payment gateways into cohesive event-driven pipelines.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-300 mb-6 font-mono">
+                <li class="flex items-center gap-2"><span class="text-accent-coral">&bull;</span> REST, GraphQL & gRPC High-Throughput APIs</li>
+                <li class="flex items-center gap-2"><span class="text-accent-coral">&bull;</span> Webhook Listeners & Queue Management</li>
+                <li class="flex items-center gap-2"><span class="text-accent-coral">&bull;</span> Enterprise SSO & OAuth2 IAM Pipelines</li>
+              </ul>
+            </div>
+            <button onclick="prefillConsulting('Systems & API Integration')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800/90 hover:bg-accent-coral/20 hover:text-rose-300 text-slate-200 text-xs font-semibold uppercase tracking-wider border border-slate-700 hover:border-accent-coral/40 transition-colors flex items-center justify-center gap-2">
+              Inquire About Integrations &rarr;
+            </button>
+          </div>
+
+          <!-- Pillar 3: Cloud & Legacy Migration -->
+          <div class="card-glass rounded-2xl p-8 flex flex-col justify-between transition-all duration-300">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-accent-violet/10 border border-accent-violet/20 text-accent-violet flex items-center justify-center mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+              </div>
+              <h3 class="text-xl font-bold text-white font-display mb-2">Cloud & Data Migration</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                Safely migrate workloads from on-premise infrastructure or aging monoliths to containerized, auto-scaling Kubernetes and serverless clouds.
+              </p>
+              <ul class="space-y-2 text-xs text-slate-300 mb-6 font-mono">
+                <li class="flex items-center gap-2"><span class="text-accent-violet">&bull;</span> Zero-Downtime Live Database Replication</li>
+                <li class="flex items-center gap-2"><span class="text-accent-violet">&bull;</span> Docker, Kubernetes & Terraform Orchestration</li>
+                <li class="flex items-center gap-2"><span class="text-accent-violet">&bull;</span> AWS, Google Cloud, and Azure Landing Zones</li>
+              </ul>
+            </div>
+            <button onclick="prefillConsulting('Cloud & Legacy Migration')" class="w-full py-2.5 px-4 rounded-xl bg-slate-800/90 hover:bg-accent-violet/20 hover:text-purple-300 text-slate-200 text-xs font-semibold uppercase tracking-wider border border-slate-700 hover:border-accent-violet/40 transition-colors flex items-center justify-center gap-2">
+              Plan Migration &rarr;
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DYNAMIC CONSUMER SOFTWARE PRODUCTS ==================== -->
+    <section id="products" class="py-24 relative overflow-hidden">
+      <!-- Ambient light -->
+      <div class="absolute top-1/2 left-1/3 -translate-y-1/2 w-[550px] h-[550px] bg-brand-500/10 blur-[150px] pointer-events-none -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header & Configurator Callout -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs uppercase tracking-widest font-mono text-brand-400">Software Portfolio</span>
+              <span class="text-[10px] font-mono bg-slate-800 px-2 py-0.5 rounded text-slate-300 border border-slate-700">Centralized Config</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-1">Consumer & Enterprise Products</h2>
+            <p class="text-slate-400 text-sm mt-2 max-w-xl">
+              All applications below are rendered dynamically from the <code class="text-brand-400 font-mono">PRODUCTS</code> array in the script. Easily add your 3rd, 4th, or 10th product at any time.
+            </p>
+          </div>
+
+          <!-- Dynamic Status Filters -->
+          <div class="flex flex-wrap items-center gap-2 bg-slate-900/90 p-1.5 rounded-xl border border-slate-800">
+            <button onclick="filterCatalog('all')" class="filter-tab-btn active px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all bg-brand-500 text-white" data-filter="all">
+              All Products (<span id="count-all">0</span>)
+            </button>
+            <button onclick="filterCatalog('beta')" class="filter-tab-btn px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all text-slate-400 hover:text-white" data-filter="beta">
+              Beta (<span id="count-beta">0</span>)
+            </button>
+            <button onclick="filterCatalog('live')" class="filter-tab-btn px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all text-slate-400 hover:text-white" data-filter="live">
+              Live (<span id="count-live">0</span>)
+            </button>
+            <button onclick="filterCatalog('coming')" class="filter-tab-btn px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all text-slate-400 hover:text-white" data-filter="coming">
+              Coming Soon (<span id="count-coming">0</span>)
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Product Container (Populated via JS) -->
+        <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dynamically inserted by renderProducts() -->
+        </div>
+
+        <!-- Empty State Container -->
+        <div id="emptyCatalogState" class="hidden text-center py-16 card-glass rounded-3xl border border-dashed border-slate-700">
+          <p class="text-slate-400 text-sm mb-4">No products currently match this filter.</p>
+          <button onclick="filterCatalog('all')" class="px-5 py-2 rounded-xl bg-slate-800 text-brand-400 text-xs font-semibold border border-slate-700">
+            Reset Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WHY SUNRISE / ARCHITECTURE ==================== -->
+    <section id="why-us" class="py-20 bg-slate-950/60 border-y border-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs uppercase tracking-widest font-mono text-brand-400">Engineering Foundation</span>
+          <h2 class="font-display text-3xl font-bold text-white mt-1">Built to Enterprise Standards</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2">
+            The same architectural principles powering our consulting engagements back our consumer applications.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="card-glass p-6 rounded-2xl border border-slate-800/90">
+            <div class="text-brand-400 font-mono text-xl font-bold mb-2">01</div>
+            <h4 class="text-sm font-bold text-white mb-2">Zero-Downtime Guarantee</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              We employ blue/green canary deployments to ensure data migrations execute without a second of service interruption.
+            </p>
+          </div>
+
+          <div class="card-glass p-6 rounded-2xl border border-slate-800/90">
+            <div class="text-brand-400 font-mono text-xl font-bold mb-2">02</div>
+            <h4 class="text-sm font-bold text-white mb-2">Cloud-Agnostic Portability</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Prevent vendor lock-in. Our codebases run natively on AWS, Google Cloud, Azure, or dedicated bare-metal clusters.
+            </p>
+          </div>
+
+          <div class="card-glass p-6 rounded-2xl border border-slate-800/90">
+            <div class="text-brand-400 font-mono text-xl font-bold mb-2">03</div>
+            <h4 class="text-sm font-bold text-white mb-2">Local-First Privacy</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Our consumer tools feature zero-knowledge encryption and offline-first data engines to preserve sovereign data ownership.
+            </p>
+          </div>
+
+          <div class="card-glass p-6 rounded-2xl border border-slate-800/90">
+            <div class="text-brand-400 font-mono text-xl font-bold mb-2">04</div>
+            <h4 class="text-sm font-bold text-white mb-2">Senior Advisory</h4>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Work directly with principal system architects who design, test, and deploy every production line of code.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT & PRODUCT WAITLIST ==================== -->
+    <section id="contact" class="py-24 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-10">
+          <span class="text-xs uppercase tracking-widest font-mono text-brand-400">Communication Hub</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-1">Get in Touch with Sunrise Softwares Solutions</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2">
+            Schedule an enterprise architecture consultation or request early beta product invitations.
+          </p>
+
+          <!-- Form Tab Switcher -->
+          <div class="inline-flex p-1 bg-slate-900 rounded-2xl border border-slate-800 mt-6">
+            <button id="tabConsultingBtn" onclick="switchFormTab('consulting')" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-gradient-to-r from-brand-500 to-accent-coral text-white shadow-md">
+              Enterprise Consulting
+            </button>
+            <button id="tabWaitlistBtn" onclick="switchFormTab('waitlist')" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-slate-400 hover:text-white">
+              Product Beta Waitlist
+            </button>
+          </div>
+        </div>
+
+        <!-- Form Card Container -->
+        <div class="card-glass rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-2xl relative">
+          
+          <!-- CONSULTING FORM -->
+          <form id="consultingForm" onsubmit="handleFormSubmission(event, 'consulting')" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Full Name *</label>
+                <input type="text" required placeholder="Alex Mercer" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Company Email *</label>
+                <input type="email" required placeholder="alex@company.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Consulting Domain</label>
+                <select id="consultingServiceSelect" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-500">
+                  <option value="Strategic Software Consulting">Strategic Software Consulting & Architecture</option>
+                  <option value="Systems & API Integration">Systems & API Integration</option>
+                  <option value="Cloud & Legacy Migration">Cloud & Legacy Migration</option>
+                  <option value="Bespoke Product Engineering">Bespoke Enterprise Software Build</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Target Timeline</label>
+                <select class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-500">
+                  <option>Immediate (1 - 3 Weeks)</option>
+                  <option>Within 30 to 60 Days</option>
+                  <option>Q1 / Q2 Planning</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Project Scope & Technical Goals</label>
+              <textarea rows="4" placeholder="Describe your current tech stack, pain points, or migration objectives..." class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-500 via-orange-600 to-accent-coral text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all">
+              Submit Consulting Request &rarr;
+            </button>
+          </form>
+
+          <!-- WAITLIST FORM (Dropdown is dynamically populated from PRODUCTS!) -->
+          <form id="waitlistForm" onsubmit="handleFormSubmission(event, 'waitlist')" class="space-y-6 hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Your Name *</label>
+                <input type="text" required placeholder="Elena Rostova" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Email Address *</label>
+                <input type="email" required placeholder="elena@domain.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Choose Product (Synced from Catalog)</label>
+                <!-- Dynamically populated from JS array -->
+                <select id="waitlistProductSelect" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-500">
+                  <!-- Injected via syncWaitlistDropdown() -->
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Preferred Environment</label>
+                <select class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-500">
+                  <option>macOS Desktop (Apple Silicon / Intel)</option>
+                  <option>Windows 10 / 11</option>
+                  <option>Linux (x86_64 / ARM64)</option>
+                  <option>Web Browser App</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">What features or workflow problems do you want solved?</label>
+              <input type="text" placeholder="e.g., Local encryption, cross-cloud sync speed, intuitive user interface..." class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500">
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 via-brand-500 to-accent-coral text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all">
+              Request Beta Access Invitation &rarr;
+            </button>
+          </form>
+
+          <!-- Success Notification Box -->
+          <div id="formSuccessMessage" class="hidden text-center py-10 space-y-4">
+            <div class="w-14 h-14 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 mx-auto flex items-center justify-center">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white font-display" id="successHeading">Submission Received!</h3>
+            <p class="text-slate-300 text-xs sm:text-sm max-w-md mx-auto leading-relaxed" id="successBody">
+              Your inquiry has been logged. Our engineering desk will follow up directly at your provided email.
+            </p>
+            <button onclick="resetForms()" class="mt-4 px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 uppercase tracking-wider">
+              Send Another Message
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Domain Routing Banner -->
+        <div class="mt-8 text-center text-xs text-slate-400">
+          Direct email inquiry: 
+          <a href="mailto:solutions@sunrisesoftwares.com" class="text-brand-400 font-mono hover:underline ml-1">
+            solutions@sunrisesoftwares.com
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#02050c] border-t border-slate-900 text-slate-400 py-12 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-brand-500 to-accent-coral flex items-center justify-center text-white font-bold">
+              <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M2 12h4M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12ZM4 22h16"></path></svg>
+            </div>
+            <span class="font-display font-bold text-base text-white">Sunrise<span class="text-brand-400">Softwares Solutions</span></span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            Empowering enterprise infrastructures with strategic consulting and zero-downtime migrations, while crafting modern software products for consumer delight.
+          </p>
+          <p class="font-mono text-[11px] text-brand-400">Official Domain: sunrisesoftwares.com</p>
+        </div>
+
+        <div>
+          <h4 class="text-xs uppercase font-mono tracking-wider text-slate-200 font-semibold mb-3">Consulting</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#services" class="hover:text-white transition-colors">Strategic Software Advisory</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Enterprise API Integrations</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Zero-Downtime Cloud Migration</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs uppercase font-mono tracking-wider text-slate-200 font-semibold mb-3">Management</h4>
+          <ul class="space-y-2 text-xs">
+            <li><button onclick="toggleConfiguratorModal()" class="hover:text-brand-400 transition-colors text-left">Product Catalog Guide</button></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">solutions@sunrisesoftwares.com</a></li>
+            <li><span class="text-emerald-400 font-mono">Status: All Systems Normal</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-3">
+        <div>&copy; 2026 Sunrise Softwares Solutions. All rights reserved.</div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300">Terms of Service</a>
+          <a href="#" class="hover:text-slate-300">Security Architecture</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== UNIVERSAL VIDEO / DEMO MODAL ==================== -->
+  <div id="demoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-md" role="dialog" aria-modal="true">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl w-full max-w-4xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/80">
+        <div class="flex items-center gap-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-ping"></span>
+          <div>
+            <h3 id="modalProductTitle" class="font-display font-bold text-white text-base">Product Demo</h3>
+            <span id="modalProductSubtitle" class="text-xs text-slate-400 font-mono">Live Walkthrough</span>
+          </div>
+        </div>
+        <button onclick="closeDemoModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Media Display Container (Dynamically loads YouTube, MP4, or Canvas) -->
+      <div class="relative bg-black w-full overflow-hidden flex items-center justify-center min-h-[300px] sm:min-h-[440px]">
+        <div id="mediaContainer" class="w-full h-full flex items-center justify-center">
+          <!-- Dynamically inserted: <iframe>, <video>, or <canvas> -->
+        </div>
+      </div>
+
+      <!-- Modal Footer Details -->
+      <div class="p-6 bg-slate-950/90 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <div class="text-xs font-mono text-brand-400" id="modalTechSpecs">Engine Specs</div>
+          <div class="text-xs text-slate-400 mt-0.5" id="modalPlatformList">Platforms: macOS / Windows / Linux</div>
+        </div>
+        <a id="modalActionBtn" href="#contact" onclick="closeDemoModal()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-500 to-accent-coral text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-brand-500/20 hover:opacity-95 transition-all">
+          Request Beta Key &rarr;
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== PRODUCT CONFIGURATOR / HOW-TO-EDIT MODAL ==================== -->
+  <div id="configuratorModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-md" role="dialog" aria-modal="true">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+      
+      <!-- Top header -->
+      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/80">
+        <div class="flex items-center gap-2.5">
+          <span class="w-3 h-3 rounded-full bg-brand-500"></span>
+          <h3 class="font-display font-bold text-white text-base">How to Add, Edit & Manage Products</h3>
+        </div>
+        <button onclick="toggleConfiguratorModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 overflow-y-auto space-y-6 text-xs text-slate-300">
+        
+        <!-- Explanation -->
+        <div class="p-4 rounded-xl bg-brand-500/10 border border-brand-500/30 text-slate-200 leading-relaxed">
+          <p class="font-semibold text-brand-300 text-sm mb-1">Centralized JavaScript Product Catalog</p>
+          You do <span class="font-bold text-white">not</span> need to write repetitive HTML. Simply open this <code class="font-mono text-brand-300">index.html</code> file in any code editor (VS Code, Notepad, Cursor) and locate the <code class="font-mono text-amber-300">const PRODUCTS = [ ... ]</code> array at the very top of the script tag.
+        </div>
+
+        <!-- 3 Simple Steps -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+            <span class="text-brand-400 font-mono font-bold">Step 1:</span>
+            <p class="text-slate-300 mt-1 font-semibold">Customize Beta 1 & 2</p>
+            <p class="text-slate-400 mt-1">Change the names, taglines, and feature lists of the two pre-configured Beta products.</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+            <span class="text-brand-400 font-mono font-bold">Step 2:</span>
+            <p class="text-slate-300 mt-1 font-semibold">Choose Video Type</p>
+            <p class="text-slate-400 mt-1">Set <code class="font-mono text-brand-400">demoType</code> to <code class="font-mono text-white">'youtube'</code>, <code class="font-mono text-white">'mp4'</code>, or <code class="font-mono text-white">'canvas'</code>.</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+            <span class="text-brand-400 font-mono font-bold">Step 3:</span>
+            <p class="text-slate-300 mt-1 font-semibold">Add New Products</p>
+            <p class="text-slate-400 mt-1">Copy and paste any product block into the array. The catalog updates automatically.</p>
+          </div>
+        </div>
+
+        <!-- Code Snippet Template Generator -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono font-bold text-white uppercase text-[11px] tracking-wider">Example Product Code Block to Copy:</span>
+            <button onclick="copySnippetTemplate()" class="px-3 py-1 rounded-lg bg-brand-500 hover:bg-brand-600 text-white font-mono text-[11px] flex items-center gap-1.5 transition-colors" id="copySnippetBtn">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              Copy Template Block
+            </button>
+          </div>
+          <pre class="bg-slate-950 p-4 rounded-xl border border-slate-800 overflow-x-auto text-[11px] font-mono text-emerald-400 leading-relaxed select-all" id="codeTemplateSnippet">
+{
+  id: "my-new-product",
+  name: "Sunrise Workspace Cloud",
+  tagline: "Autonomous background cloud backup and asset pipeline for engineering teams.",
+  status: "beta",          // Available statuses: "beta" | "live" | "coming"
+  badgeText: "v0.9 Beta",
+  categoryLabel: "Cloud Tool",
+  platforms: ["macOS", "Windows", "Linux"],
+  specs: "Rust &bull; Multi-Region &bull; Zero-Knowledge",
+  features: [
+    "Continuous encrypted delta sync",
+    "Sub-15ms webhook processing",
+    "Single-click enterprise onboarding"
+  ],
+  demoType: "canvas",      // "youtube" | "mp4" | "canvas"
+  demoUrl: "",             // e.g. "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  ctaText: "Request Beta Key"
+},</pre>
+        </div>
+
+      </div>
+
+      <div class="px-6 py-4 bg-slate-950/80 border-t border-slate-800 flex justify-end">
+        <button onclick="toggleConfiguratorModal()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold">
+          Got It, Close Guide
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification System (Replaces alert) -->
+  <div id="toastMessage" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 border border-brand-500/50 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-brand-400"></span>
+    <span id="toastText">Notification text</span>
+  </div>
+
+  <!-- ==================== CENTRAL JAVASCRIPT & DATA CATALOG ==================== -->
+  <script>
+    /* ==========================================================================
+       1. CENTRAL PRODUCT CONFIGURATION CATALOG
+       --------------------------------------------------------------------------
+       HOW TO EDIT OR ADD PRODUCTS:
+       - To rename your Beta products: Edit "name", "tagline", "features" below.
+       - To switch demo types:
+           a) Set demoType: "canvas"   -> Uses procedural interactive animated demo
+           b) Set demoType: "youtube"  -> Paste embed URL into demoUrl (e.g. "https://www.youtube.com/embed/...")
+           c) Set demoType: "mp4"      -> Paste direct .mp4 URL into demoUrl
+       - To add Product #3, #4, etc.: Simply duplicate one of the objects below!
+       - To change status: Use "beta", "live", or "coming".
+       ========================================================================== */
+    const PRODUCTS = [
+	    {
+        id: "vahankavach",
+        name: "VahanKavach",
+        tagline: "Automated vehicle compliance shield that tracks ANPR traffic challans, monitors PUC expiry, and prevents hefty roadside penalties.",
+        status: "beta",          // "beta" | "live" | "coming"
+        badgeText: "Early Access Beta v0.9",
+        categoryLabel: "CivicTech & Automotive",
+        platforms: ["Web", "Telegram", "WhatsApp", "PWA"],
+        specs: "Supabase Edge &bull; Real-time Parivahan Sync &bull; DPDP 2023 Compliant",
+        features: [
+          "Proactive PUC & insurance expiry alerts to avoid ₹10,000 roadside penalties",
+          "Automated ANPR camera e-challan detection with 1-tap UPI settlement",
+          "Zero-app-fatigue notifications delivered straight via Telegram & WhatsApp"
+        ],
+        demoType: "mp4",      // "canvas", "youtube", or "mp4"
+        demoUrl: "videos/vahankavach_demo.mp4",             // Embed URL when using youtube/mp4
+        ctaText: "Protect Your Vehicle"
+      },
+      {
+        id: "kenji",
+        name: "Kenji", // product brand in-app: Jiyaa
+        tagline: "Multi-role retail commerce app that routes zipcode-aligned orders from customer checkout through franchise, delivery, and owner ops — with GST-ready receipts and live status.",
+        status: "beta",          // "beta" | "live" | "coming"
+        badgeText: "Private Beta v1.0",
+        categoryLabel: "Retail Commerce",
+        platforms: ["Android", "iOS"],
+        specs: "Flutter &bull; Supabase Postgres &bull; Razorpay &bull; FCM Push",
+        features: [
+          "Four roles in one app: Customer, Franchise, Delivery, and Owner",
+          "Zipcode-based franchise alignment with inventory-aware catalog and order lifecycle",
+          "Subscriptions, payments, GST snapshots, refill workflows, and real-time order tracking"
+        ],
+        demoType: "mp4",      // "canvas", "youtube", or "mp4"
+        demoUrl: "videos/kenji_demo.mp4",             // Embed URL when using youtube/mp4
+        ctaText: "Request Beta Access"
+      }
+
+      /* Example of how to add Product #3 in the future (uncomment and customize):
+      ,
+      {
+        id: "future-product-3",
+        name: "Sunrise Sentinel",
+        tagline: "Autonomous database performance and query bottleneck analyzer.",
+        status: "coming",
+        badgeText: "In Development",
+        categoryLabel: "DevOps",
+        platforms: ["Docker", "Kubernetes"],
+        specs: "Go / eBPF Kernel Tracing",
+        features: [
+          "Zero overhead live query inspection",
+          "Automated slow index recommendations"
+        ],
+        demoType: "canvas",
+        demoUrl: "",
+        ctaText: "Get Notified"
+      }
+      */
+    ];
+
+    /* ==========================================================================
+       2. CATALOG RENDERING ENGINE
+       ========================================================================== */
+    let activeFilter = 'all';
+
+    function renderProducts(filter = 'all') {
+      activeFilter = filter;
+      const grid = document.getElementById('productsGrid');
+      const emptyState = document.getElementById('emptyCatalogState');
+      grid.innerHTML = '';
+
+      // Filter products
+      const filtered = PRODUCTS.filter(p => filter === 'all' || p.status === filter);
+
+      // Handle empty state
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+      }
+
+      // Generate Card HTML for each product
+      filtered.forEach(prod => {
+        let badgeClass = 'badge-status-beta';
+        if (prod.status === 'live') badgeClass = 'badge-status-live';
+        if (prod.status === 'coming') badgeClass = 'badge-status-coming';
+
+        const card = document.createElement('div');
+        card.className = "card-glass rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300";
+        
+        card.innerHTML = `
+          <!-- Card Top Graphic Area -->
+          <div class="h-44 bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950/30 p-5 flex flex-col justify-between relative overflow-hidden group border-b border-slate-800">
+            <div class="flex items-center justify-between z-10">
+              <span class="${badgeClass} text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full ${prod.status === 'live' ? 'bg-green-400' : 'bg-amber-400'} animate-pulse"></span>
+                ${prod.badgeText}
+              </span>
+              <span class="text-[11px] font-mono text-slate-400 bg-slate-950/80 px-2 py-0.5 rounded border border-white/5">
+                ${prod.categoryLabel}
+              </span>
+            </div>
+
+            <!-- Stylized Minimal Visual Preview Bar -->
+            <div class="z-10 bg-slate-900/90 p-3 rounded-xl border border-white/10 backdrop-blur-md">
+              <div class="flex items-center justify-between text-xs font-mono text-slate-300">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-brand-400"></span>
+                  <span class="text-white font-semibold">${prod.name}</span>
+                </div>
+                <span class="text-brand-400 text-[10px]">${prod.platforms[0]} Ready</span>
+              </div>
+            </div>
+
+            <!-- Background subtle tech grid -->
+            <div class="absolute inset-0 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:16px_16px] opacity-10 group-hover:scale-105 transition-transform duration-500"></div>
+          </div>
+
+          <!-- Card Content Body -->
+          <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display text-xl sm:text-2xl font-bold text-white mb-2">${prod.name}</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
+                ${prod.tagline}
+              </p>
+
+              <!-- Features checklist -->
+              <div class="space-y-2 mb-6">
+                ${prod.features.map(f => `
+                  <div class="flex items-start text-xs text-slate-300 gap-2">
+                    <span class="text-brand-400 mt-0.5">&bull;</span>
+                    <span>${f}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- Specs & Interactive Action Buttons -->
+            <div>
+              <div class="text-[11px] font-mono text-slate-400 border-t border-slate-800/80 pt-4 mb-4">
+                ${prod.specs}
+              </div>
+
+              <div class="flex items-center gap-2.5">
+                <button onclick="launchProductDemo('${prod.id}')" class="flex-1 py-3 px-3 rounded-xl bg-gradient-to-r from-brand-500 to-orange-600 hover:from-brand-600 hover:to-orange-700 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-brand-500/20 transition-all">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6V4z"/></svg>
+                  Watch Demo
+                </button>
+                <a href="#contact" onclick="prefillWaitlist('${prod.name}')" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap">
+                  ${prod.ctaText}
+                </a>
+              </div>
+            </div>
+
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      // Update badge counts
+      updateFilterCounts();
+    }
+
+    function updateFilterCounts() {
+      const counts = { all: PRODUCTS.length, beta: 0, live: 0, coming: 0 };
+      PRODUCTS.forEach(p => {
+        if (counts[p.status] !== undefined) counts[p.status]++;
+      });
+
+      document.getElementById('count-all').innerText = counts.all;
+      document.getElementById('count-beta').innerText = counts.beta;
+      document.getElementById('count-live').innerText = counts.live;
+      document.getElementById('count-coming').innerText = counts.coming;
+
+      // Update Header & Stats
+      document.getElementById('navBetaCount').innerText = `${counts.beta} Beta`;
+      const statElem = document.getElementById('statProductsCount');
+      if (statElem) statElem.innerText = `${counts.all} Products`;
+    }
+
+    function filterCatalog(category) {
+      document.querySelectorAll('.filter-tab-btn').forEach(btn => {
+        if (btn.dataset.filter === category) {
+          btn.className = 'filter-tab-btn active px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all bg-brand-500 text-white';
+        } else {
+          btn.className = 'filter-tab-btn px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all text-slate-400 hover:text-white';
+        }
+      });
+      renderProducts(category);
+    }
+
+    // Automatically synchronize the waitlist form dropdown with current PRODUCTS
+    function syncWaitlistDropdown() {
+      const select = document.getElementById('waitlistProductSelect');
+      if (!select) return;
+      select.innerHTML = '';
+
+      PRODUCTS.forEach(prod => {
+        const opt = document.createElement('option');
+        opt.value = prod.name;
+        opt.innerText = `${prod.name} (${prod.badgeText})`;
+        select.appendChild(opt);
+      });
+
+      const optAll = document.createElement('option');
+      optAll.value = "All Sunrise Software Products";
+      optAll.innerText = "All Current & Future Sunrise Software Solutions Products";
+      select.appendChild(optAll);
+    }
+
+    /* ==========================================================================
+       3. UNIVERSAL VIDEO / INTERACTIVE DEMO MODAL
+       ========================================================================== */
+    let canvasAnimationId = null;
+
+    function launchProductDemo(productId) {
+      const prod = PRODUCTS.find(p => p.id === productId);
+      if (!prod) return;
+
+      document.getElementById('modalProductTitle').innerText = `${prod.name} — Walkthrough`;
+      document.getElementById('modalProductSubtitle').innerText = `${prod.categoryLabel} &bull; ${prod.badgeText}`;
+      document.getElementById('modalTechSpecs').innerHTML = prod.specs;
+      document.getElementById('modalPlatformList').innerText = `Platforms: ${prod.platforms.join(' / ')}`;
+      document.getElementById('modalActionBtn').innerText = prod.ctaText;
+
+      const mediaContainer = document.getElementById('mediaContainer');
+      mediaContainer.innerHTML = '';
+
+      // Cancel any running animation loops
+      if (canvasAnimationId) {
+        cancelAnimationFrame(canvasAnimationId);
+        canvasAnimationId = null;
+      }
+
+      // 1. YouTube Embed Support
+      if (prod.demoType === 'youtube' && prod.demoUrl) {
+        mediaContainer.innerHTML = `
+          <div class="video-aspect-box w-full">
+            <iframe src="${prod.demoUrl}?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+          </div>
+        `;
+      } 
+      // 2. Direct HTML5 MP4 Video Support
+      else if (prod.demoType === 'mp4' && prod.demoUrl) {
+        mediaContainer.innerHTML = `
+          <div class="w-full h-full flex items-center justify-center p-2 bg-black">
+            <video controls autoplay class="max-h-[460px] w-full rounded-xl object-contain">
+              <source src="${prod.demoUrl}" type="video/mp4">
+              Your browser does not support HTML5 video playback.
+            </video>
+          </div>
+        `;
+      } 
+      // 3. Interactive Procedural Canvas Simulation (Works without external video files!)
+      else {
+        const canvas = document.createElement('canvas');
+        canvas.id = 'demoCanvas';
+        canvas.className = 'w-full h-[360px] sm:h-[420px] block bg-[#050914]';
+        mediaContainer.appendChild(canvas);
+        initProceduralSimulation(canvas, prod);
+      }
+
+      document.getElementById('demoModal').classList.remove('hidden');
+    }
+
+    function closeDemoModal() {
+      document.getElementById('demoModal').classList.add('hidden');
+      const mediaContainer = document.getElementById('mediaContainer');
+      mediaContainer.innerHTML = ''; // stops iframes and videos
+      if (canvasAnimationId) {
+        cancelAnimationFrame(canvasAnimationId);
+        canvasAnimationId = null;
+      }
+    }
+
+    // Procedural Simulation Engine for instant high-tech visuals
+    function initProceduralSimulation(canvas, prod) {
+      const ctx = canvas.getContext('2d');
+      let t = 0;
+
+      function resize() {
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+      }
+      resize();
+
+      function draw() {
+        const rect = canvas.getBoundingClientRect();
+        const w = rect.width;
+        const h = rect.height;
+        if (w === 0 || h === 0) return;
+
+        t += 0.02;
+        ctx.clearRect(0, 0, w, h);
+
+        // Grid
+        ctx.fillStyle = "#060b17";
+        ctx.fillRect(0, 0, w, h);
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.03)";
+        ctx.lineWidth = 1;
+        for (let x = 0; x < w; x += 30) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+        }
+        for (let y = 0; y < h; y += 30) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+        }
+
+        // Mock App Frame
+        const pad = 20;
+        ctx.fillStyle = "rgba(15, 23, 42, 0.9)";
+        ctx.strokeStyle = "rgba(249, 115, 22, 0.4)";
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(pad, pad, w - pad * 2, h - pad * 2);
+        ctx.fillRect(pad, pad, w - pad * 2, h - pad * 2);
+
+        // Header bar
+        ctx.fillStyle = "#0b1120";
+        ctx.fillRect(pad, pad, w - pad * 2, 34);
+        ctx.fillStyle = "#f97316";
+        ctx.font = "bold 11px monospace";
+        ctx.fillText(`SIMULATED RUNTIME: ${prod.name} v0.9`, pad + 15, pad + 22);
+
+        // Visual Data Nodes & Pulse
+        const cx = w / 2;
+        const cy = h / 2 + 10;
+        const radius = Math.min(w, h) * 0.25;
+
+        for (let i = 0; i < 5; i++) {
+          const angle = t * 0.8 + (i * (Math.PI * 2 / 5));
+          const nx = cx + Math.cos(angle) * radius;
+          const ny = cy + Math.sin(angle) * radius;
+
+          ctx.strokeStyle = "rgba(249, 115, 22, 0.25)";
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+          ctx.lineTo(nx, ny);
+          ctx.stroke();
+
+          ctx.fillStyle = "#f97316";
+          ctx.beginPath();
+          ctx.arc(nx, ny, 6, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Central Core
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(cx, cy, 14, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#0f172a";
+        ctx.font = "bold 8px monospace";
+        ctx.fillText("SYNC", cx - 11, cy + 3);
+
+        // Terminal text in lower corner
+        ctx.fillStyle = "#10b981";
+        ctx.font = "11px monospace";
+        ctx.fillText(`> [Active Process]: Zero-knowledge pipeline verified`, pad + 20, h - pad - 35);
+        ctx.fillStyle = "#cbd5e1";
+        ctx.fillText(`> Engine: ${prod.specs}`, pad + 20, h - pad - 18);
+
+        canvasAnimationId = requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    /* ==========================================================================
+       4. FORM HANDLING & TABS
+       ========================================================================== */
+    function switchFormTab(tab) {
+      const consultingForm = document.getElementById('consultingForm');
+      const waitlistForm = document.getElementById('waitlistForm');
+      const consultingBtn = document.getElementById('tabConsultingBtn');
+      const waitlistBtn = document.getElementById('tabWaitlistBtn');
+      const successBox = document.getElementById('formSuccessMessage');
+
+      successBox.classList.add('hidden');
+
+      if (tab === 'consulting') {
+        consultingForm.classList.remove('hidden');
+        waitlistForm.classList.add('hidden');
+        consultingBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-gradient-to-r from-brand-500 to-accent-coral text-white shadow-md';
+        waitlistBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-slate-400 hover:text-white';
+      } else {
+        consultingForm.classList.add('hidden');
+        waitlistForm.classList.remove('hidden');
+        waitlistBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-gradient-to-r from-brand-500 to-accent-coral text-white shadow-md';
+        consultingBtn.className = 'px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-slate-400 hover:text-white';
+      }
+    }
+
+    function prefillConsulting(serviceName) {
+      switchFormTab('consulting');
+      const select = document.getElementById('consultingServiceSelect');
+      if (select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].text.includes(serviceName) || select.options[i].value.includes(serviceName)) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function prefillWaitlist(productName) {
+      switchFormTab('waitlist');
+      const select = document.getElementById('waitlistProductSelect');
+      if (select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.includes(productName)) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleFormSubmission(e, type) {
+      e.preventDefault();
+      document.getElementById('consultingForm').classList.add('hidden');
+      document.getElementById('waitlistForm').classList.add('hidden');
+      
+      const successBox = document.getElementById('formSuccessMessage');
+      const heading = document.getElementById('successHeading');
+      const body = document.getElementById('successBody');
+
+      if (type === 'consulting') {
+        heading.innerText = 'Consultation Inquiry Transmitted!';
+        body.innerText = 'Thank you for contacting Sunrise Softwares Solutions. An enterprise architect will review your project requirements and follow up at your corporate email address within 24 business hours.';
+      } else {
+        heading.innerText = 'Beta Invitation Registered!';
+        body.innerText = 'Your address has been placed on the priority beta waitlist. You will receive private download tokens and release instructions shortly.';
+      }
+
+      successBox.classList.remove('hidden');
+    }
+
+    function resetForms() {
+      document.getElementById('formSuccessMessage').classList.add('hidden');
+      document.getElementById('consultingForm').reset();
+      document.getElementById('waitlistForm').reset();
+      switchFormTab('consulting');
+    }
+
+    /* ==========================================================================
+       5. CONFIGURATOR & UTILITY HELPERS
+       ========================================================================== */
+    function toggleConfiguratorModal() {
+      const modal = document.getElementById('configuratorModal');
+      modal.classList.toggle('hidden');
+    }
+
+    function copySnippetTemplate() {
+      const textToCopy = document.getElementById('codeTemplateSnippet').innerText;
+      const tempTextArea = document.createElement('textarea');
+      tempTextArea.value = textToCopy;
+      tempTextArea.style.position = 'fixed';
+      tempTextArea.style.left = '-9999px';
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      try {
+        document.execCommand('copy');
+        showToast('Product template copied to clipboard! Paste it into PRODUCTS array.');
+      } catch (err) {
+        showToast('Please manually select and copy the text block.');
+      }
+      document.body.removeChild(tempTextArea);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastMessage');
+      const toastText = document.getElementById('toastText');
+      toastText.innerText = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    function toggleMobileMenu() {
+      mobileDrawer.classList.toggle('hidden');
+    }
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    // Escape Key listener for all modals
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDemoModal();
+        document.getElementById('configuratorModal').classList.add('hidden');
+      }
+    });
+
+    /* Initialize page on load */
+    window.onload = function() {
+      renderProducts('all');
+      syncWaitlistDropdown();
+    };
+  </script>
+</body>
+</html>
